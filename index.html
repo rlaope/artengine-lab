@@ -506,6 +506,11 @@
         filter: saturate(1.04) contrast(1.02);
       }
 
+      .profile-avatar img.frieren-photo {
+        object-position: center 12%;
+        transform: scale(1.12);
+      }
+
       .hope-art,
       .friren-art {
         width: 100%;
@@ -1347,37 +1352,15 @@
                 aria-label="Open Friren-AI OMH repository"
               >
                 <span class="profile-avatar">
-                  <svg class="friren-art" viewBox="0 0 120 120" role="img" aria-label="Friren-AI profile sigil">
-                    <defs>
-                      <radialGradient id="friren-core" cx="50%" cy="42%" r="62%">
-                        <stop offset="0%" stop-color="#eef9ff"></stop>
-                        <stop offset="36%" stop-color="#9ed9ff"></stop>
-                        <stop offset="100%" stop-color="#0b1c37"></stop>
-                      </radialGradient>
-                      <linearGradient id="friren-ring" x1="20" y1="18" x2="100" y2="110" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#7feaff"></stop>
-                        <stop offset="0.55" stop-color="#d9ecff"></stop>
-                        <stop offset="1" stop-color="#6da8ff"></stop>
-                      </linearGradient>
-                      <filter id="friren-sigil-glow" x="-30%" y="-30%" width="160%" height="160%">
-                        <feGaussianBlur stdDeviation="3.2" result="blur"></feGaussianBlur>
-                        <feMerge>
-                          <feMergeNode in="blur"></feMergeNode>
-                          <feMergeNode in="SourceGraphic"></feMergeNode>
-                        </feMerge>
-                      </filter>
-                    </defs>
-                    <rect width="120" height="120" rx="14" fill="#061225"></rect>
-                    <circle cx="60" cy="60" r="34" fill="url(#friren-core)" opacity="0.95"></circle>
-                    <circle cx="60" cy="60" r="27" fill="none" stroke="url(#friren-ring)" stroke-width="2.5" opacity="0.9"></circle>
-                    <path d="M44 44c6-9 14-14 24-14 9 0 17 4 22 12-6-4-12-5-18-4-10 1-17 5-28 14z" fill="#f5fbff" opacity="0.88"></path>
-                    <path d="M40 78c8-13 19-20 31-20 11 0 22 6 29 20-9 7-20 11-31 11-11 0-21-3-29-11z" fill="#c5e1f8" opacity="0.92"></path>
-                    <path d="M50 60h7M63 60h7" stroke="#07182f" stroke-width="3" stroke-linecap="round"></path>
-                    <path d="M55 71c4 2 7 2 11 0" stroke="#365c80" stroke-width="2" stroke-linecap="round"></path>
-                    <path d="M18 24h18M84 24h18M18 96h18M84 96h18" stroke="#7feaff" stroke-width="2.6" stroke-linecap="round" filter="url(#friren-sigil-glow)"></path>
-                    <path d="M24 18v14M96 18v14M24 88v14M96 88v14" stroke="#6da8ff" stroke-width="2" stroke-linecap="round"></path>
-                    <circle cx="60" cy="60" r="43" fill="none" stroke="rgba(127,234,255,0.18)" stroke-width="1.5"></circle>
-                  </svg>
+                  <img
+                    class="frieren-photo"
+                    src="assets/frieren-go.png"
+                    alt="Frieren profile image"
+                    width="88"
+                    height="88"
+                    loading="lazy"
+                    decoding="async"
+                  >
                 </span>
                 <div class="profile-body">
                   <div class="profile-meta">
