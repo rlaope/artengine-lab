@@ -11,21 +11,21 @@
     <style>
       :root {
         color-scheme: dark;
-        --bg: #01040a;
-        --bg-2: #040a15;
-        --panel: rgba(5, 13, 26, 0.82);
-        --panel-solid: #061122;
-        --text: #f5fbff;
-        --muted: #a9bdd0;
-        --quiet: #748aa1;
-        --line: rgba(154, 213, 255, 0.17);
-        --line-strong: rgba(147, 214, 255, 0.36);
-        --cyan: #7feaff;
-        --blue: #5e9cff;
-        --blue-2: #2f68ff;
-        --ice: #c7e8ff;
-        --silver: #d9e6f0;
-        --shadow: 0 24px 72px rgba(0, 0, 0, 0.54);
+        --bg: #020202;
+        --bg-2: #0a0a0a;
+        --panel: rgba(12, 12, 12, 0.88);
+        --panel-solid: #0d0d0d;
+        --text: #f7f7f2;
+        --muted: #c9c9c1;
+        --quiet: #8f8f88;
+        --line: rgba(255, 255, 255, 0.12);
+        --line-strong: rgba(255, 255, 255, 0.26);
+        --cyan: #f6f4ec;
+        --blue: #d9d7d0;
+        --blue-2: #bdbab0;
+        --ice: #f1efe8;
+        --silver: #ddd9d0;
+        --shadow: 0 24px 72px rgba(0, 0, 0, 0.58);
         --max: 1160px;
       }
 
@@ -43,8 +43,8 @@
         margin: 0;
         overflow-x: hidden;
         background:
-          linear-gradient(180deg, rgba(42, 106, 207, 0.24), transparent 31rem),
-          linear-gradient(115deg, #01040a 0%, #06142a 46%, #01030a 100%);
+          radial-gradient(circle at top, rgba(255, 255, 255, 0.08), transparent 26rem),
+          linear-gradient(135deg, #020202 0%, #0a0a0a 44%, #030303 100%);
         color: var(--text);
         font-family:
           Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
@@ -61,8 +61,8 @@
         pointer-events: none;
         content: "";
         background-image:
-          linear-gradient(rgba(181, 230, 255, 0.035) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(181, 230, 255, 0.028) 1px, transparent 1px);
+          linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.024) 1px, transparent 1px);
         background-size: 56px 56px;
         mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.88), transparent 82%);
       }
@@ -77,8 +77,8 @@
         pointer-events: none;
         content: "";
         background:
-          linear-gradient(90deg, transparent, rgba(127, 234, 255, 0.14), transparent),
-          linear-gradient(0deg, rgba(47, 104, 255, 0.13), transparent 68%);
+          linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent),
+          linear-gradient(0deg, rgba(255, 255, 255, 0.09), transparent 68%);
         filter: blur(46px);
         transform: skewY(-9deg);
       }
@@ -127,7 +127,7 @@
 
       .nav.is-scrolled {
         border-color: var(--line);
-        background: rgba(2, 4, 8, 0.74);
+        background: rgba(8, 8, 8, 0.82);
         box-shadow: 0 16px 52px rgba(0, 0, 0, 0.34);
         backdrop-filter: blur(18px);
       }
@@ -156,20 +156,20 @@
         height: 40px;
         flex: 0 0 auto;
         place-items: center;
-        border: 1px solid rgba(127, 234, 255, 0.24);
+        border: 1px solid rgba(255, 255, 255, 0.16);
         border-radius: 10px;
         background:
-          linear-gradient(135deg, rgba(127, 234, 255, 0.14), transparent 56%),
+          linear-gradient(135deg, rgba(255, 255, 255, 0.09), transparent 56%),
           rgba(255, 255, 255, 0.03);
         box-shadow:
-          0 0 28px rgba(127, 234, 255, 0.14),
-          inset 0 0 18px rgba(127, 234, 255, 0.05);
+          0 0 28px rgba(255, 255, 255, 0.09),
+          inset 0 0 18px rgba(255, 255, 255, 0.03);
       }
 
       .brand-logo {
         width: 31px;
         height: 31px;
-        filter: drop-shadow(0 0 18px rgba(127, 234, 255, 0.18));
+        filter: drop-shadow(0 0 18px rgba(255, 255, 255, 0.12));
       }
 
       .brand-text {
@@ -225,7 +225,7 @@
         left: 0;
         height: 1px;
         content: "";
-        background: linear-gradient(90deg, transparent, rgba(127, 234, 255, 0.22), transparent);
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.14), transparent);
       }
 
       .section {
@@ -270,7 +270,7 @@
         width: min(68vw, 680px);
         height: 1px;
         content: "";
-        background: linear-gradient(90deg, transparent, rgba(127, 234, 255, 0.64), transparent);
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.62), transparent);
         opacity: 0.72;
         transform: translateX(-50%);
       }
@@ -294,7 +294,7 @@
         width: 1px;
         height: 2.4rem;
         content: "";
-        background: linear-gradient(180deg, transparent, rgba(127, 234, 255, 0.8));
+        background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.78));
       }
 
       .hero-title {
@@ -305,7 +305,7 @@
         letter-spacing: 0;
         line-height: 0.92;
         text-shadow:
-          0 0 36px rgba(127, 234, 255, 0.18),
+          0 0 36px rgba(255, 255, 255, 0.12),
           0 20px 70px rgba(0, 0, 0, 0.44);
       }
 
@@ -337,7 +337,7 @@
         border-radius: 999px;
         content: "";
         background: var(--cyan);
-        box-shadow: 0 0 18px rgba(127, 234, 255, 0.7);
+        box-shadow: 0 0 18px rgba(255, 255, 255, 0.62);
         animation: scrollPulse 2.2s ease-in-out infinite;
       }
 
@@ -355,7 +355,7 @@
         width: 34px;
         height: 1px;
         content: "";
-        background: linear-gradient(90deg, rgba(127, 234, 255, 0.86), transparent);
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.78), transparent);
       }
 
       .scene-heading {
@@ -377,8 +377,8 @@
 
       .profile-scene {
         background:
-          linear-gradient(180deg, transparent, rgba(5, 19, 39, 0.48) 50%, transparent),
-          linear-gradient(90deg, transparent, rgba(94, 156, 255, 0.06), transparent);
+          linear-gradient(180deg, transparent, rgba(10, 10, 10, 0.72) 50%, transparent),
+          linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.025), transparent);
       }
 
       .profile-intro {
@@ -390,17 +390,17 @@
         max-width: 900px;
         margin: 0 auto;
         overflow: hidden;
-        border: 1px solid rgba(127, 234, 255, 0.34);
+        border: 1px solid rgba(255, 255, 255, 0.22);
         border-radius: 8px;
         padding: 0.82rem;
         background:
-          linear-gradient(145deg, rgba(94, 156, 255, 0.2), transparent 34%),
-          linear-gradient(320deg, rgba(127, 234, 255, 0.12), transparent 45%),
+          linear-gradient(145deg, rgba(255, 255, 255, 0.05), transparent 34%),
+          linear-gradient(320deg, rgba(255, 255, 255, 0.04), transparent 45%),
           linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent),
-          rgba(4, 12, 25, 0.9);
+          rgba(8, 8, 8, 0.94);
         box-shadow:
           0 28px 92px rgba(0, 0, 0, 0.58),
-          0 0 70px rgba(47, 104, 255, 0.13),
+          0 0 70px rgba(255, 255, 255, 0.03),
           inset 0 1px 0 rgba(255, 255, 255, 0.1);
       }
 
@@ -410,9 +410,9 @@
         pointer-events: none;
         content: "";
         background:
-          linear-gradient(120deg, transparent 0 32%, rgba(127, 234, 255, 0.14) 33%, transparent 36%),
-          linear-gradient(90deg, rgba(154, 213, 255, 0.04) 1px, transparent 1px),
-          linear-gradient(rgba(154, 213, 255, 0.03) 1px, transparent 1px);
+          linear-gradient(120deg, transparent 0 32%, rgba(255, 255, 255, 0.09) 33%, transparent 36%),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+          linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
         background-size: auto, 30px 30px, 30px 30px;
         opacity: 0.68;
       }
@@ -433,12 +433,12 @@
         align-items: center;
         gap: 1rem;
         min-height: 168px;
-        border: 1px solid rgba(154, 213, 255, 0.16);
+        border: 1px solid rgba(255, 255, 255, 0.1);
         border-radius: 8px;
         padding: 1rem;
         background:
           linear-gradient(135deg, rgba(255, 255, 255, 0.07), transparent 48%),
-          rgba(2, 8, 17, 0.62);
+          rgba(10, 10, 10, 0.72);
         transition:
           border-color 180ms ease,
           background-color 180ms ease,
@@ -457,14 +457,14 @@
         left: 0;
         width: 2px;
         content: "";
-        background: linear-gradient(180deg, transparent, rgba(127, 234, 255, 0.82), transparent);
+        background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.72), transparent);
         opacity: 0.7;
       }
 
       .profile-entry:hover {
-        border-color: rgba(127, 234, 255, 0.48);
-        background-color: rgba(8, 24, 48, 0.66);
-        box-shadow: 0 0 44px rgba(94, 156, 255, 0.13);
+        border-color: rgba(255, 255, 255, 0.32);
+        background-color: rgba(18, 18, 18, 0.86);
+        box-shadow: 0 0 44px rgba(255, 255, 255, 0.04);
         transform: translateY(-2px);
       }
 
@@ -474,12 +474,12 @@
         height: 88px;
         flex: 0 0 auto;
         overflow: hidden;
-        border: 1px solid rgba(154, 213, 255, 0.34);
+        border: 1px solid rgba(255, 255, 255, 0.22);
         border-radius: 8px;
-        background: #061225;
+        background: #0a0a0a;
         box-shadow:
-          0 0 34px rgba(127, 234, 255, 0.15),
-          inset 0 0 22px rgba(127, 234, 255, 0.08);
+          0 0 34px rgba(255, 255, 255, 0.1),
+          inset 0 0 22px rgba(255, 255, 255, 0.05);
       }
 
       .profile-avatar img,
@@ -526,7 +526,7 @@
         display: inline-flex;
         align-items: center;
         gap: 0.42rem;
-        border: 1px solid rgba(154, 213, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.14);
         border-radius: 999px;
         padding: 0.32rem 0.54rem;
         background: rgba(255, 255, 255, 0.04);
@@ -545,7 +545,7 @@
         border-radius: 50%;
         content: "";
         background: var(--cyan);
-        box-shadow: 0 0 16px rgba(127, 234, 255, 0.6);
+        box-shadow: 0 0 16px rgba(255, 255, 255, 0.52);
       }
 
       .profile-name {
@@ -581,7 +581,7 @@
         display: inline-flex;
         align-items: center;
         min-height: 28px;
-        border: 1px solid rgba(154, 213, 255, 0.18);
+        border: 1px solid rgba(255, 255, 255, 0.12);
         border-radius: 999px;
         padding: 0.3rem 0.54rem;
         background: rgba(255, 255, 255, 0.038);
@@ -595,10 +595,10 @@
         justify-content: space-between;
         flex: 0 0 auto;
         min-height: 38px;
-        border: 1px solid rgba(127, 234, 255, 0.35);
+        border: 1px solid rgba(255, 255, 255, 0.24);
         border-radius: 999px;
         padding: 0.5rem 0.68rem 0.52rem 0.78rem;
-        background: rgba(127, 234, 255, 0.08);
+        background: rgba(255, 255, 255, 0.05);
         color: var(--text);
         font-size: 0.88rem;
         font-weight: 740;
@@ -611,8 +611,8 @@
 
       .collectible-scene {
         background:
-          linear-gradient(180deg, rgba(2, 4, 8, 0), rgba(2, 4, 8, 0.42)),
-          linear-gradient(120deg, rgba(47, 104, 255, 0.08), transparent 34%);
+          linear-gradient(180deg, rgba(2, 2, 2, 0), rgba(2, 2, 2, 0.72)),
+          linear-gradient(120deg, rgba(255, 255, 255, 0.028), transparent 34%);
       }
 
       .collectible-grid {
@@ -626,12 +626,12 @@
         position: relative;
         min-height: 312px;
         overflow: hidden;
-        border: 1px solid rgba(154, 213, 255, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.14);
         border-radius: 8px;
         padding: 1rem;
         background:
           linear-gradient(160deg, rgba(255, 255, 255, 0.075), transparent 40%),
-          rgba(5, 14, 28, 0.88);
+          rgba(8, 8, 8, 0.94);
         box-shadow:
           0 22px 66px rgba(0, 0, 0, 0.44),
           inset 0 1px 0 rgba(255, 255, 255, 0.08);
@@ -656,9 +656,9 @@
         display: grid;
         align-content: space-between;
         background:
-          linear-gradient(135deg, rgba(127, 234, 255, 0.18), transparent 36%),
-          linear-gradient(315deg, rgba(94, 156, 255, 0.13), transparent 42%),
-          rgba(5, 14, 28, 0.92);
+          radial-gradient(circle at top left, rgba(255, 255, 255, 0.08), transparent 36%),
+          linear-gradient(315deg, rgba(255, 255, 255, 0.04), transparent 42%),
+          rgba(7, 7, 7, 0.96);
       }
 
       .card-index {
@@ -681,16 +681,16 @@
       .ae-logo {
         width: min(100%, 380px);
         height: auto;
-        filter: drop-shadow(0 0 26px rgba(127, 234, 255, 0.24));
+        filter: drop-shadow(0 0 26px rgba(255, 255, 255, 0.16));
       }
 
       .omh-shot {
         position: relative;
         margin-top: 1.4rem;
         overflow: hidden;
-        border: 1px solid rgba(154, 213, 255, 0.18);
+        border: 1px solid rgba(255, 255, 255, 0.12);
         border-radius: 8px;
-        background: rgba(3, 12, 23, 0.82);
+        background: rgba(7, 7, 7, 0.9);
         box-shadow:
           0 22px 56px rgba(0, 0, 0, 0.3),
           inset 0 1px 0 rgba(255, 255, 255, 0.05);
@@ -727,14 +727,14 @@
         width: 66px;
         height: 66px;
         place-items: center;
-        border: 1px solid rgba(127, 234, 255, 0.28);
+        border: 1px solid rgba(255, 255, 255, 0.18);
         border-radius: 8px;
         color: var(--cyan);
         font-size: 1.72rem;
         font-weight: 780;
         box-shadow:
-          0 0 30px rgba(127, 234, 255, 0.14),
-          inset 0 0 24px rgba(127, 234, 255, 0.07);
+          0 0 30px rgba(255, 255, 255, 0.09),
+          inset 0 0 24px rgba(255, 255, 255, 0.05);
       }
 
       .mode-lines {
@@ -746,7 +746,7 @@
       .mode-lines i {
         display: block;
         height: 1px;
-        background: linear-gradient(90deg, rgba(127, 234, 255, 0.72), transparent);
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.64), transparent);
         transform-origin: left;
         animation: lineBreath 5.4s ease-in-out infinite;
       }
@@ -761,14 +761,74 @@
         animation-delay: 1.2s;
       }
 
+      .manifesto-card {
+        display: grid;
+        grid-column: span 2;
+        align-content: space-between;
+        min-height: 312px;
+        background:
+          radial-gradient(circle at top left, rgba(255, 255, 255, 0.08), transparent 42%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 30%),
+          #060606;
+      }
+
+      .manifesto-sheet {
+        display: grid;
+        gap: 1.05rem;
+        min-height: 100%;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        padding: 1.2rem;
+        background: rgba(0, 0, 0, 0.72);
+        box-shadow:
+          inset 0 1px 0 rgba(255, 255, 255, 0.06),
+          0 24px 64px rgba(0, 0, 0, 0.42);
+      }
+
+      .manifesto-lead {
+        margin: 0;
+        color: var(--silver);
+        font-size: 0.92rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .manifesto-copy {
+        margin: 0;
+        color: var(--text);
+        font-family: "Snell Roundhand", "Bradley Hand", "Segoe Print", "Apple Chancery", "Comic Sans MS", cursive;
+        font-size: clamp(1.26rem, 2.2vw, 1.78rem);
+        line-height: 1.55;
+        letter-spacing: 0.01em;
+      }
+
+      .manifesto-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+        margin-top: 0.35rem;
+      }
+
+      .manifesto-links a {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.26);
+        padding-bottom: 0.16rem;
+        color: var(--silver);
+        font-size: 0.95rem;
+      }
+
+      .manifesto-links a:hover {
+        color: var(--text);
+        border-color: rgba(255, 255, 255, 0.5);
+      }
+
       .component-mode {
         position: relative;
         min-height: 92svh;
-        border-top: 1px solid rgba(127, 234, 255, 0.18);
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
         padding-bottom: 2rem;
         background:
-          linear-gradient(180deg, rgba(5, 14, 28, 0.25), rgba(2, 7, 15, 0.94)),
-          linear-gradient(90deg, transparent, rgba(94, 156, 255, 0.09), transparent);
+          linear-gradient(180deg, rgba(8, 8, 8, 0.3), rgba(3, 3, 3, 0.97)),
+          linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
       }
 
       .component-mode::before {
@@ -777,8 +837,8 @@
         pointer-events: none;
         content: "";
         background:
-          linear-gradient(90deg, transparent 0 5%, rgba(127, 234, 255, 0.08) 5.2%, transparent 5.4%),
-          linear-gradient(90deg, transparent 0 78%, rgba(94, 156, 255, 0.07) 78.2%, transparent 78.4%);
+          linear-gradient(90deg, transparent 0 5%, rgba(255, 255, 255, 0.05) 5.2%, transparent 5.4%),
+          linear-gradient(90deg, transparent 0 78%, rgba(255, 255, 255, 0.04) 78.2%, transparent 78.4%);
       }
 
       .component-dots {
@@ -804,10 +864,10 @@
         width: 16px;
         height: 16px;
         place-items: center;
-        border: 1px solid rgba(154, 213, 255, 0.34);
+        border: 1px solid rgba(255, 255, 255, 0.22);
         border-radius: 50%;
-        background: rgba(2, 4, 8, 0.72);
-        box-shadow: 0 0 22px rgba(127, 234, 255, 0.18);
+        background: rgba(8, 8, 8, 0.78);
+        box-shadow: 0 0 22px rgba(255, 255, 255, 0.12);
       }
 
       .component-dot::before {
@@ -816,7 +876,7 @@
         border-radius: 50%;
         content: "";
         background: var(--cyan);
-        box-shadow: 0 0 18px rgba(127, 234, 255, 0.7);
+        box-shadow: 0 0 18px rgba(255, 255, 255, 0.62);
       }
 
       .component-grid {
@@ -842,13 +902,13 @@
         align-items: center;
         justify-content: center;
         min-height: 42px;
-        border: 1px solid rgba(127, 234, 255, 0.34);
+        border: 1px solid rgba(255, 255, 255, 0.22);
         border-radius: 999px;
         padding: 0.62rem 0.82rem 0.64rem 0.92rem;
         background: rgba(244, 251, 255, 0.94);
-        color: #03101a;
+        color: #0a0a0a;
         font-weight: 760;
-        box-shadow: 0 0 38px rgba(127, 234, 255, 0.14);
+        box-shadow: 0 0 38px rgba(255, 255, 255, 0.09);
         transition:
           border-color 180ms ease,
           box-shadow 180ms ease,
@@ -856,8 +916,8 @@
       }
 
       .button:hover {
-        border-color: rgba(127, 234, 255, 0.72);
-        box-shadow: 0 0 48px rgba(127, 234, 255, 0.24);
+        border-color: rgba(255, 255, 255, 0.64);
+        box-shadow: 0 0 48px rgba(255, 255, 255, 0.16);
         transform: translateY(-2px);
       }
 
@@ -874,12 +934,12 @@
         position: relative;
         min-height: 470px;
         overflow: hidden;
-        border: 1px solid rgba(154, 213, 255, 0.24);
+        border: 1px solid rgba(255, 255, 255, 0.16);
         border-radius: 8px;
         background:
-          linear-gradient(145deg, rgba(127, 234, 255, 0.16), transparent 34%),
+          linear-gradient(145deg, rgba(255, 255, 255, 0.05), transparent 34%),
           linear-gradient(180deg, rgba(255, 255, 255, 0.065), transparent 42%),
-          #041024;
+          #070707;
         box-shadow:
           0 42px 130px rgba(0, 0, 0, 0.56),
           inset 0 1px 0 rgba(255, 255, 255, 0.09);
@@ -891,7 +951,7 @@
         content: "";
         background:
           linear-gradient(120deg, transparent 0 24%, rgba(255, 255, 255, 0.06) 24.2%, transparent 24.7%),
-          linear-gradient(120deg, transparent 0 56%, rgba(127, 234, 255, 0.12) 56.2%, transparent 56.8%),
+          linear-gradient(120deg, transparent 0 56%, rgba(255, 255, 255, 0.08) 56.2%, transparent 56.8%),
           linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
         background-size: auto, auto, 46px 46px;
         opacity: 0.82;
@@ -902,10 +962,10 @@
         inset: 32px;
         display: grid;
         align-content: space-between;
-        border: 1px solid rgba(154, 213, 255, 0.18);
+        border: 1px solid rgba(255, 255, 255, 0.12);
         border-radius: 8px;
         padding: 1.12rem;
-        background: rgba(2, 8, 18, 0.76);
+        background: rgba(8, 8, 8, 0.82);
         backdrop-filter: blur(18px);
       }
 
@@ -932,7 +992,7 @@
         border-radius: 50%;
         content: "";
         background: var(--cyan);
-        box-shadow: 0 0 18px rgba(127, 234, 255, 0.62);
+        box-shadow: 0 0 18px rgba(255, 255, 255, 0.54);
       }
 
       .product-name {
@@ -947,7 +1007,7 @@
         font-size: clamp(4.4rem, 8.8vw, 7.1rem);
         font-weight: 800;
         line-height: 0.8;
-        text-shadow: 0 0 34px rgba(127, 234, 255, 0.16);
+        text-shadow: 0 0 34px rgba(255, 255, 255, 0.1);
       }
 
       .product-name span {
@@ -966,7 +1026,7 @@
       .signal-lines i {
         display: block;
         height: 1px;
-        background: linear-gradient(90deg, rgba(127, 234, 255, 0.64), transparent);
+        background: linear-gradient(90deg, rgba(255, 255, 255, 0.62), transparent);
         transform-origin: left;
         animation: lineBreath 5.8s ease-in-out infinite;
       }
@@ -984,12 +1044,12 @@
       .shell > footer {
         position: relative;
         margin-top: -1px;
-        border-top: 1px solid rgba(127, 234, 255, 0.12);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
         padding: 1.4rem 0 1.7rem;
         color: var(--quiet);
         background:
-          linear-gradient(180deg, rgba(2, 8, 18, 0.22), rgba(1, 4, 10, 0.96) 26%),
-          linear-gradient(90deg, rgba(127, 234, 255, 0.04), transparent 18%, transparent 82%, rgba(94, 156, 255, 0.04));
+          linear-gradient(180deg, rgba(8, 8, 8, 0.22), rgba(2, 2, 2, 0.98) 26%),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.02), transparent 18%, transparent 82%, rgba(255, 255, 255, 0.02));
         box-shadow: inset 0 12px 34px rgba(0, 0, 0, 0.2);
       }
 
@@ -998,7 +1058,7 @@
         inset: 0 0 auto;
         height: 1px;
         content: "";
-        background: linear-gradient(90deg, transparent, rgba(127, 234, 255, 0.22), transparent);
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.14), transparent);
       }
 
       .footer-inner {
@@ -1292,7 +1352,7 @@
               <svg class="brand-logo" viewBox="0 0 64 64" role="img" aria-label="art8engine logo">
                 <defs>
                   <linearGradient id="brand-logo-stroke" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="#7feaff"></stop>
+                    <stop stop-color="#f6f4ec"></stop>
                     <stop offset="0.5" stop-color="#d7e4ed"></stop>
                     <stop offset="1" stop-color="#6ca6ff"></stop>
                   </linearGradient>
@@ -1424,7 +1484,6 @@
         <section class="scene-panel collectible-scene" id="cards" aria-labelledby="cards-title">
           <div class="section">
             <div class="reveal">
-              <p class="scene-kicker">Collectible cards</p>
               <h2 class="scene-heading" id="cards-title">art8engine</h2>
             </div>
 
@@ -1438,9 +1497,9 @@
                   <svg class="ae-logo" viewBox="0 0 640 260" role="img" aria-label="art8engine logo">
                     <defs>
                       <linearGradient id="logo-stroke" x1="80" y1="38" x2="560" y2="220" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#7feaff"></stop>
+                        <stop stop-color="#f6f4ec"></stop>
                         <stop offset="0.52" stop-color="#d7e4ed"></stop>
-                        <stop offset="1" stop-color="#8bc7ff"></stop>
+                        <stop offset="1" stop-color="#e5e1d8"></stop>
                       </linearGradient>
                       <filter id="logo-glow" x="-20%" y="-30%" width="140%" height="160%">
                         <feGaussianBlur stdDeviation="4" result="blur"></feGaussianBlur>
@@ -1450,60 +1509,39 @@
                         </feMerge>
                       </filter>
                     </defs>
-                    <rect x="30" y="34" width="580" height="188" rx="10" fill="#07111d" stroke="#7feaff" stroke-opacity="0.25"></rect>
+                    <rect x="30" y="34" width="580" height="188" rx="10" fill="#0d0d0d" stroke="#f6f4ec" stroke-opacity="0.25"></rect>
                     <path d="M78 192 132 68l55 124M102 143h60" fill="none" stroke="url(#logo-stroke)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" filter="url(#logo-glow)"></path>
                     <path d="M232 70h84c20 0 34 12 34 30 0 16-9 26-24 31 20 6 31 18 31 38 0 31-23 50-60 50h-65V70Zm50 43v28h25c11 0 18-5 18-14 0-9-7-14-18-14h-25Zm0 67h32c13 0 21 6 21 17 0 11-8 17-21 17h-32v-34Z" fill="url(#logo-stroke)" filter="url(#logo-glow)"></path>
                     <path d="M424 174c0-22 13-35 31-43-12-7-19-18-19-32 0-24 19-40 47-40 29 0 48 16 48 40 0 14-7 25-19 32 18 8 31 21 31 43 0 31-24 52-60 52-35 0-59-21-59-52Zm44 0c0 12 9 20 21 20 13 0 21-8 21-20 0-12-9-20-21-20-12 0-21 8-21 20Zm4-67c0 10 7 17 17 17 11 0 18-7 18-17 0-10-7-17-18-17-10 0-17 7-17 17Z" fill="url(#logo-stroke)" filter="url(#logo-glow)"></path>
-                    <path d="M214 53h34M392 53h34M214 203h34M392 203h34" stroke="#8bc7ff" stroke-opacity="0.68" stroke-width="3" stroke-linecap="round"></path>
+                    <path d="M214 53h34M392 53h34M214 203h34M392 203h34" stroke="#e5e1d8" stroke-opacity="0.68" stroke-width="3" stroke-linecap="round"></path>
                   </svg>
                 </div>
                 <div>
                   <h3 class="collectible-title">art8engine</h3>
                   <p class="collectible-text">
-                    A compact mark for making taste and implementation share the same frame.
+                    A compact mark for keeping artistic judgment and engineering precision inside the same frame.
                   </p>
                 </div>
               </article>
 
-              <article class="collectible-card mode-card">
+              <article class="collectible-card manifesto-card">
                 <div class="card-index">
-                  <span>Mode 02</span>
-                  <span>Art</span>
+                  <span>Letter 02</span>
+                  <span>Studio note</span>
                 </div>
-                <div>
-                  <div class="mode-glyph" aria-hidden="true">A</div>
-                  <div class="mode-lines" aria-hidden="true">
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                  </div>
-                </div>
-                <div>
-                  <h3 class="collectible-title">Art</h3>
-                  <p class="collectible-text">
-                    Taste, atmosphere, pacing, and the willingness to cut until the work feels intentional.
+                <div class="manifesto-sheet">
+                  <p class="manifesto-lead">A note from Art &amp; Engineering</p>
+                  <p class="manifesto-copy">
+                    We build with the belief that radical engineering and artistic sensitivity can meet in one disciplined practice.
+                    Every release is shaped until the system works with precision and the feeling lands with intent.
                   </p>
-                </div>
-              </article>
-
-              <article class="collectible-card mode-card">
-                <div class="card-index">
-                  <span>Mode 03</span>
-                  <span>Engineering</span>
-                </div>
-                <div>
-                  <div class="mode-glyph" aria-hidden="true">E</div>
-                  <div class="mode-lines" aria-hidden="true">
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                  </div>
-                </div>
-                <div>
-                  <h3 class="collectible-title">Engineering</h3>
-                  <p class="collectible-text">
-                    Systems, constraints, and shipping discipline that keep the idea alive after release.
+                  <p class="manifesto-copy">
+                    If you want to build with Artengine, we would be glad to hear from you.
                   </p>
+                  <div class="manifesto-links" aria-label="Artengine contact links">
+                    <a href="mailto:piyrw9754@gmail.com">mailto · piyrw9754@gmail.com</a>
+                    <a href="https://github.com/rlaope" target="_blank" rel="noopener noreferrer">github · rlaope</a>
+                  </div>
                 </div>
               </article>
             </div>
@@ -1514,7 +1552,7 @@
           <div class="section component-grid">
             <div class="component-copy reveal">
               <p class="scene-kicker">Component 01</p>
-              <h2 class="scene-heading" id="omh-title">OMH is the first serious product from the studio.</h2>
+              <h2 class="scene-heading" id="omh-title">OMH - Oh My Hermes Agent</h2>
               <p class="scene-copy">
                 OMH turns the Art &amp; Engineering partnership into a product surface:
                 deliberate, inspectable, and shaped through repeated contact between
@@ -1527,15 +1565,7 @@
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Open OMH <span aria-hidden="true">&rarr;</span>
-                </a>
-                <a
-                  class="button secondary"
-                  href="https://github.com/rlaope/artengine-lab"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View site repo <span aria-hidden="true">&rarr;</span>
+                  GitHub <span aria-hidden="true">&rarr;</span>
                 </a>
               </div>
               <div class="omh-shot">
@@ -1665,9 +1695,9 @@
           ctx.translate(x, y);
           ctx.transform(1, 0, skew, 1, 0, 0);
           const gradient = ctx.createLinearGradient(0, 0, w, h);
-          gradient.addColorStop(0, `rgba(127, 234, 255, ${alpha})`);
-          gradient.addColorStop(0.5, `rgba(94, 156, 255, ${alpha * 0.7})`);
-          gradient.addColorStop(1, "rgba(94, 156, 255, 0)");
+          gradient.addColorStop(0, `rgba(255, 255, 255, ${alpha})`);
+          gradient.addColorStop(0.5, `rgba(214, 214, 214, ${alpha * 0.7})`);
+          gradient.addColorStop(1, "rgba(214, 214, 214, 0)");
           ctx.fillStyle = gradient;
           ctx.fillRect(0, 0, w, h);
           ctx.restore();
@@ -1683,9 +1713,9 @@
           ctx.clearRect(0, 0, width, height);
 
           const base = ctx.createLinearGradient(0, 0, width, height);
-          base.addColorStop(0, "rgba(127, 234, 255, 0.035)");
-          base.addColorStop(0.48, "rgba(2, 4, 8, 0)");
-          base.addColorStop(1, "rgba(94, 156, 255, 0.034)");
+          base.addColorStop(0, "rgba(255, 255, 255, 0.028)");
+          base.addColorStop(0.48, "rgba(8, 8, 8, 0)");
+          base.addColorStop(1, "rgba(214, 214, 214, 0.026)");
           ctx.fillStyle = base;
           ctx.fillRect(0, 0, width, height);
 
@@ -1703,7 +1733,7 @@
           for (let i = 0; i < 10; i += 1) {
             const x = width * (0.06 + i * 0.105);
             const shift = Math.sin(t * 1.7 + i * 0.7) * 14;
-            const color = i % 3 === 0 ? "127, 234, 255" : "215, 228, 237";
+            const color = i % 3 === 0 ? "255, 255, 255" : "214, 214, 214";
             line(x + shift, height * 0.04, x - width * 0.15 + shift, height * 0.94, i % 3 === 0 ? 0.1 : 0.065, color);
           }
 
