@@ -495,9 +495,15 @@
           inset 0 0 22px rgba(127, 234, 255, 0.08);
       }
 
+      .profile-avatar img,
       .profile-avatar svg {
         width: 100%;
         height: 100%;
+        object-fit: cover;
+      }
+
+      .profile-avatar img {
+        filter: saturate(1.04) contrast(1.02);
       }
 
       .hope-art,
@@ -1301,30 +1307,14 @@
                 aria-label="Open Hope Kim GitHub profile"
               >
                 <span class="profile-avatar">
-                  <svg class="hope-art" viewBox="0 0 120 120" role="img" aria-label="Hope Kim profile mark">
-                    <defs>
-                      <linearGradient id="hope-bg" x1="14" y1="12" x2="108" y2="112" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#7feaff" stop-opacity="0.62"></stop>
-                        <stop offset="0.48" stop-color="#0b2d62"></stop>
-                        <stop offset="1" stop-color="#5e9cff" stop-opacity="0.66"></stop>
-                      </linearGradient>
-                      <filter id="hope-glow" x="-20%" y="-20%" width="140%" height="140%">
-                        <feGaussianBlur stdDeviation="2.6" result="blur"></feGaussianBlur>
-                        <feMerge>
-                          <feMergeNode in="blur"></feMergeNode>
-                          <feMergeNode in="SourceGraphic"></feMergeNode>
-                        </feMerge>
-                      </filter>
-                    </defs>
-                    <rect width="120" height="120" fill="#061225"></rect>
-                    <path d="M12 18h96v84H12z" fill="url(#hope-bg)" opacity="0.5"></path>
-                    <path d="M18 34h84M18 60h84M18 86h84M34 18v84M60 18v84M86 18v84" stroke="#c7e8ff" stroke-opacity="0.12" stroke-width="1"></path>
-                    <circle cx="60" cy="50" r="20" fill="#d9e6f0" opacity="0.94"></circle>
-                    <path d="M24 104c8-25 21-37 36-37s28 12 36 37H24z" fill="#b7d8f2" opacity="0.92"></path>
-                    <path d="M36 42c10-18 37-19 49-2-5-7-11-10-18-9-11 1-19 5-31 11z" fill="#071936" opacity="0.86"></path>
-                    <path d="M29 23h18M73 23h18M29 97h18M73 97h18" stroke="#7feaff" stroke-width="3" stroke-linecap="round" filter="url(#hope-glow)"></path>
-                    <path d="M46 53h9M65 53h9" stroke="#061225" stroke-width="3" stroke-linecap="round"></path>
-                  </svg>
+                  <img
+                    src="https://avatars.githubusercontent.com/u/105429536?v=4"
+                    alt="Hope Kim GitHub avatar"
+                    width="88"
+                    height="88"
+                    loading="lazy"
+                    decoding="async"
+                  >
                 </span>
                 <div class="profile-body">
                   <div class="profile-meta">
@@ -1357,37 +1347,36 @@
                 aria-label="Open Friren-AI OMH repository"
               >
                 <span class="profile-avatar">
-                  <svg class="friren-art" viewBox="0 0 120 120" role="img" aria-label="Stylized Friren-AI avatar">
+                  <svg class="friren-art" viewBox="0 0 120 120" role="img" aria-label="Friren-AI profile sigil">
                     <defs>
-                      <linearGradient id="friren-bg" x1="18" y1="10" x2="104" y2="112" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#7feaff" stop-opacity="0.54"></stop>
-                        <stop offset="0.48" stop-color="#102a56"></stop>
-                        <stop offset="1" stop-color="#8bc7ff" stop-opacity="0.64"></stop>
+                      <radialGradient id="friren-core" cx="50%" cy="42%" r="62%">
+                        <stop offset="0%" stop-color="#eef9ff"></stop>
+                        <stop offset="36%" stop-color="#9ed9ff"></stop>
+                        <stop offset="100%" stop-color="#0b1c37"></stop>
+                      </radialGradient>
+                      <linearGradient id="friren-ring" x1="20" y1="18" x2="100" y2="110" gradientUnits="userSpaceOnUse">
+                        <stop stop-color="#7feaff"></stop>
+                        <stop offset="0.55" stop-color="#d9ecff"></stop>
+                        <stop offset="1" stop-color="#6da8ff"></stop>
                       </linearGradient>
-                      <linearGradient id="friren-face" x1="42" y1="28" x2="82" y2="95" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#f4fbff"></stop>
-                        <stop offset="1" stop-color="#9bb5c8"></stop>
-                      </linearGradient>
-                      <filter id="friren-glow" x="-20%" y="-20%" width="140%" height="140%">
-                        <feGaussianBlur stdDeviation="2.4" result="blur"></feGaussianBlur>
+                      <filter id="friren-sigil-glow" x="-30%" y="-30%" width="160%" height="160%">
+                        <feGaussianBlur stdDeviation="3.2" result="blur"></feGaussianBlur>
                         <feMerge>
                           <feMergeNode in="blur"></feMergeNode>
                           <feMergeNode in="SourceGraphic"></feMergeNode>
                         </feMerge>
                       </filter>
                     </defs>
-                    <rect width="120" height="120" fill="#061225"></rect>
-                    <path d="M10 22h100v76H10z" fill="url(#friren-bg)" opacity="0.4"></path>
-                    <path d="M22 100C31 56 44 24 60 18c17 6 30 38 38 82H22z" fill="#c8f8ff" opacity="0.15"></path>
-                    <path d="M36 36c13-18 36-18 49 0l7 52c-22 16-45 16-66 0l10-52z" fill="#dcecff" opacity="0.9"></path>
-                    <path d="M42 46c6-12 30-13 38 0l-3 39c-10 10-24 10-34 0l-1-39z" fill="url(#friren-face)"></path>
-                    <path d="M36 39c-7 12-10 27-11 45 7-15 15-29 27-42l-16-3z" fill="#eefbff" opacity="0.84"></path>
-                    <path d="M84 39c8 12 11 27 12 45-7-15-16-29-28-42l16-3z" fill="#bcefff" opacity="0.84"></path>
-                    <path d="M48 62h9M64 62h9" stroke="#06233a" stroke-width="3" stroke-linecap="round"></path>
-                    <path d="M54 78c5 3 10 3 15 0" stroke="#315b76" stroke-width="2" stroke-linecap="round"></path>
-                    <path d="M28 24l12 13M92 24 80 37" stroke="#7feaff" stroke-width="3" stroke-linecap="round" filter="url(#friren-glow)"></path>
-                    <path d="M21 94h78M16 104h88" stroke="#7feaff" stroke-opacity="0.48" stroke-width="1"></path>
-                    <path d="M18 18h16M86 18h16M18 102h16M86 102h16" stroke="#8bc7ff" stroke-width="2" stroke-linecap="round"></path>
+                    <rect width="120" height="120" rx="14" fill="#061225"></rect>
+                    <circle cx="60" cy="60" r="34" fill="url(#friren-core)" opacity="0.95"></circle>
+                    <circle cx="60" cy="60" r="27" fill="none" stroke="url(#friren-ring)" stroke-width="2.5" opacity="0.9"></circle>
+                    <path d="M44 44c6-9 14-14 24-14 9 0 17 4 22 12-6-4-12-5-18-4-10 1-17 5-28 14z" fill="#f5fbff" opacity="0.88"></path>
+                    <path d="M40 78c8-13 19-20 31-20 11 0 22 6 29 20-9 7-20 11-31 11-11 0-21-3-29-11z" fill="#c5e1f8" opacity="0.92"></path>
+                    <path d="M50 60h7M63 60h7" stroke="#07182f" stroke-width="3" stroke-linecap="round"></path>
+                    <path d="M55 71c4 2 7 2 11 0" stroke="#365c80" stroke-width="2" stroke-linecap="round"></path>
+                    <path d="M18 24h18M84 24h18M18 96h18M84 96h18" stroke="#7feaff" stroke-width="2.6" stroke-linecap="round" filter="url(#friren-sigil-glow)"></path>
+                    <path d="M24 18v14M96 18v14M24 88v14M96 88v14" stroke="#6da8ff" stroke-width="2" stroke-linecap="round"></path>
+                    <circle cx="60" cy="60" r="43" fill="none" stroke="rgba(127,234,255,0.18)" stroke-width="1.5"></circle>
                   </svg>
                 </span>
                 <div class="profile-body">
