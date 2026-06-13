@@ -698,7 +698,7 @@
 
       .omh-shot img {
         width: 100%;
-        height: auto;
+        height: min(28svh, 250px);
         aspect-ratio: 1448 / 1086;
         object-fit: cover;
         object-position: center top;
@@ -928,8 +928,13 @@
 
       .projects-scene {
         position: relative;
-        min-height: 220svh;
+        display: grid;
+        min-height: 100svh;
+        max-height: 100svh;
+        align-items: center;
+        overflow: hidden;
         border-top: 1px solid rgba(255, 255, 255, 0.12);
+        padding: 6.7rem 0 3.2rem;
         background:
           linear-gradient(180deg, rgba(8, 8, 8, 0.3), rgba(3, 3, 3, 0.97)),
           linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
@@ -937,16 +942,14 @@
       }
 
       .projects-sticky {
-        position: sticky;
-        top: 0;
+        position: static;
         display: grid;
-        min-height: 100svh;
+        width: 100%;
+        min-height: min(720px, calc(100svh - 9.9rem));
         align-items: center;
-        overflow: hidden;
-        padding: 6.7rem 0 3.2rem;
       }
 
-      .projects-sticky::before {
+      .projects-scene::before {
         position: absolute;
         inset: 0;
         pointer-events: none;
@@ -970,6 +973,7 @@
       }
 
       .project-slide.is-active {
+        position: relative;
         opacity: 1;
         pointer-events: auto;
         transform: translateY(0);
@@ -1383,12 +1387,12 @@
         }
 
         .projects-scene {
-          min-height: 200svh;
+          min-height: 100svh;
+          padding: 4.4rem 0 3.4rem;
         }
 
         .projects-sticky {
-          min-height: 100svh;
-          padding: 4.4rem 0 3.4rem;
+          min-height: calc(100svh - 7.8rem);
         }
 
         .component-dots {
@@ -1780,15 +1784,8 @@
           }
         };
 
-        const projectScrollTarget = (id) => {
-          if (!projectsScene) {
-            return 0;
-          }
-
-          const sceneTop = projectsScene.offsetTop;
-          const travel = Math.max(projectsScene.offsetHeight - window.innerHeight, 1);
-          return sceneTop + (id === "loop" ? travel : 0);
-        };
+        const projectScrollTarget = () => projectsScene ? projectsScene.offsetTop : 0;
+        let wheelLocked = false;
 
         const updateProjectFromScroll = () => {
           if (!projectsScene || projectSlides.length === 0) {
@@ -1796,16 +1793,34 @@
           }
 
           const rect = projectsScene.getBoundingClientRect();
-          const isProjectVisible = rect.top < window.innerHeight * 0.58 && rect.bottom > window.innerHeight * 0.42;
+          const isProjectVisible = rect.top < window.innerHeight * 0.6 && rect.bottom > window.innerHeight * 0.4;
           document.body.classList.toggle("component-active", isProjectVisible);
+        };
 
-          if (!isProjectVisible) {
+        const onProjectWheel = (event) => {
+          if (!projectsScene || projectSlides.length < 2 || wheelLocked) {
             return;
           }
 
-          const travel = Math.max(projectsScene.offsetHeight - window.innerHeight, 1);
-          const progress = Math.min(Math.max((window.scrollY - projectsScene.offsetTop) / travel, 0), 1);
-          setActiveProject(progress >= 0.5 ? "loop" : "omh");
+          const rect = projectsScene.getBoundingClientRect();
+          const centered = Math.abs(rect.top) < window.innerHeight * 0.34;
+          if (!centered || Math.abs(event.deltaY) < 12) {
+            return;
+          }
+
+          if (event.deltaY > 0 && activeProjectId === "omh") {
+            event.preventDefault();
+            wheelLocked = true;
+            setActiveProject("loop");
+            history.replaceState(null, "", "#loop");
+            window.setTimeout(() => { wheelLocked = false; }, 420);
+          } else if (event.deltaY < 0 && activeProjectId === "loop") {
+            event.preventDefault();
+            wheelLocked = true;
+            setActiveProject("omh");
+            history.replaceState(null, "", "#omh");
+            window.setTimeout(() => { wheelLocked = false; }, 420);
+          }
         };
 
         for (const dot of componentDots) {
@@ -1817,7 +1832,7 @@
 
             event.preventDefault();
             setActiveProject(id);
-            window.scrollTo({ top: projectScrollTarget(id), behavior: "smooth" });
+            window.scrollTo({ top: projectScrollTarget(), behavior: "smooth" });
             history.replaceState(null, "", `#${id}`);
           });
         }
@@ -1834,7 +1849,7 @@
           }
 
           setActiveProject(id);
-          window.scrollTo({ top: projectScrollTarget(id), behavior: "smooth" });
+          window.scrollTo({ top: projectScrollTarget(), behavior: "smooth" });
         });
 
         for (const slide of projectSlides) {
@@ -1845,7 +1860,7 @@
         if (initialProjectId) {
           requestAnimationFrame(() => {
             setActiveProject(initialProjectId);
-            window.scrollTo({ top: projectScrollTarget(initialProjectId) });
+            window.scrollTo({ top: projectScrollTarget() });
             updateProjectFromScroll();
           });
         }
@@ -1921,10 +1936,6 @@
           }
 
           ctx.globalCompositeOperation = "source-over";
-
-          if (!reduceMotion.matches) {
-            frame = window.requestAnimationFrame(render);
-          }
         };
 
         const startCanvas = () => {
@@ -1945,6 +1956,9 @@
           updateChrome();
           updateProjectFromScroll();
         }, { passive: true });
+        if (projectsScene) {
+          projectsScene.addEventListener("wheel", onProjectWheel, { passive: false });
+        }
         window.addEventListener("resize", () => {
           updateChrome();
           updateProjectFromScroll();
