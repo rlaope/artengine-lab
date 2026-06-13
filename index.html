@@ -929,12 +929,16 @@
 
       .component-mode {
         position: relative;
-        min-height: 92svh;
+        min-height: 100svh;
         border-top: 1px solid rgba(255, 255, 255, 0.12);
         padding-bottom: 2rem;
         background:
           linear-gradient(180deg, rgba(8, 8, 8, 0.3), rgba(3, 3, 3, 0.97)),
           linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+      }
+
+      .component-mode[hidden] {
+        display: none;
       }
 
       .component-mode::before {
@@ -1859,26 +1863,41 @@
         }
 
         if (componentScenes.length) {
-          const setActiveComponent = () => {
-            const active = componentScenes.find((scene) => {
-              const rect = scene.getBoundingClientRect();
-              return rect.top <= window.innerHeight * 0.55 && rect.bottom >= window.innerHeight * 0.32;
-            });
+          const componentIds = new Set(componentScenes.map((scene) => scene.id));
+
+          const activeComponentId = () => {
+            const id = window.location.hash.slice(1);
+            return componentIds.has(id) ? id : "omh";
+          };
+
+          const setActiveComponent = ({ scrollIntoView = false } = {}) => {
+            const id = activeComponentId();
+            const active = componentScenes.find((scene) => scene.id === id) || componentScenes[0];
+
+            for (const scene of componentScenes) {
+              scene.hidden = scene !== active;
+            }
 
             document.body.classList.toggle("component-active", Boolean(active));
 
             for (const dot of componentDots) {
-              const isCurrent = Boolean(active && dot.getAttribute("href") === `#${active.id}`);
+              const isCurrent = dot.getAttribute("href") === `#${active.id}`;
               dot.setAttribute("aria-current", isCurrent ? "true" : "false");
             }
+
+            if (scrollIntoView && active) {
+              active.scrollIntoView({ block: "start" });
+            }
+
+            updateChrome();
           };
 
-          const componentObserver = new IntersectionObserver(setActiveComponent, { threshold: 0.24 });
-          for (const scene of componentScenes) {
-            componentObserver.observe(scene);
+          for (const dot of componentDots) {
+            dot.addEventListener("click", () => requestAnimationFrame(() => setActiveComponent({ scrollIntoView: true })));
           }
-          window.addEventListener("scroll", setActiveComponent, { passive: true });
-          setActiveComponent();
+
+          window.addEventListener("hashchange", () => setActiveComponent({ scrollIntoView: true }));
+          setActiveComponent({ scrollIntoView: componentIds.has(window.location.hash.slice(1)) });
         }
 
         const resize = () => {
