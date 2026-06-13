@@ -768,7 +768,7 @@
       }
 
       .loop-poster-frame {
-        min-height: 300px;
+        min-height: 100%;
       }
 
       .loop-poster-frame img,
@@ -1699,8 +1699,8 @@
                 </div>
                 <aside class="product-view loop-view reveal" aria-label="Loop Engineering project visual">
                   <div class="loop-visual-stack">
-                    <div class="loop-components-frame">
-                      <img src="assets/loop-engineering-components.png" alt="Loop Engineering components: automations, worktrees, skills, plugins, sub-agents, and memory" width="1180" height="1058" loading="lazy" decoding="async">
+                    <div class="loop-poster-frame">
+                      <img src="assets/loop-engineering-poster.png" alt="Loop Engineering poster" width="1024" height="1536" loading="lazy" decoding="async">
                       <span class="loop-badge">Safety-first loop</span>
                     </div>
                   </div>
@@ -1808,17 +1808,12 @@
             return;
           }
 
-          if (event.deltaY > 0 && activeProjectId === "omh") {
+          if (event.deltaY > 0) {
             event.preventDefault();
             wheelLocked = true;
-            setActiveProject("loop");
-            history.replaceState(null, "", "#loop");
-            window.setTimeout(() => { wheelLocked = false; }, 420);
-          } else if (event.deltaY < 0 && activeProjectId === "loop") {
-            event.preventDefault();
-            wheelLocked = true;
-            setActiveProject("omh");
-            history.replaceState(null, "", "#omh");
+            const nextId = activeProjectId === "omh" ? "loop" : "omh";
+            setActiveProject(nextId);
+            history.replaceState(null, "", `#${nextId}`);
             window.setTimeout(() => { wheelLocked = false; }, 420);
           }
         };
