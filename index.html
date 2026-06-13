@@ -704,6 +704,112 @@
         object-position: center top;
       }
 
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.52rem;
+        margin-top: 1.1rem;
+      }
+
+      .project-tags span {
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+        padding: 0.34rem 0.52rem;
+        background: rgba(255, 255, 255, 0.035);
+        color: var(--muted);
+        font-size: 0.78rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .loop-mode {
+        background:
+          radial-gradient(circle at 82% 32%, rgba(255, 173, 25, 0.12), transparent 25rem),
+          radial-gradient(circle at 18% 72%, rgba(42, 126, 255, 0.12), transparent 28rem),
+          linear-gradient(180deg, rgba(8, 8, 8, 0.22), rgba(3, 3, 3, 0.98));
+      }
+
+      .loop-mode .status::before {
+        background: #ffc53d;
+        box-shadow: 0 0 18px rgba(255, 197, 61, 0.56);
+      }
+
+      .loop-shot {
+        border-color: rgba(255, 197, 61, 0.18);
+        background: rgba(3, 3, 3, 0.92);
+      }
+
+      .loop-shot img {
+        aspect-ratio: 1024 / 1536;
+        max-height: 430px;
+        object-position: center;
+      }
+
+      .loop-view {
+        display: grid;
+        align-content: stretch;
+        min-height: 520px;
+      }
+
+      .loop-visual-stack {
+        position: absolute;
+        inset: 24px;
+        display: grid;
+        grid-template-rows: 1fr auto;
+        gap: 1rem;
+      }
+
+      .loop-poster-frame,
+      .loop-components-frame {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 8px;
+        background: rgba(0, 0, 0, 0.78);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      }
+
+      .loop-poster-frame {
+        min-height: 300px;
+      }
+
+      .loop-poster-frame img,
+      .loop-components-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .loop-poster-frame img {
+        object-position: center 42%;
+      }
+
+      .loop-components-frame {
+        min-height: 132px;
+      }
+
+      .loop-components-frame img {
+        object-fit: contain;
+        object-position: center;
+        opacity: 0.88;
+      }
+
+      .loop-badge {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        border: 1px solid rgba(255, 197, 61, 0.3);
+        border-radius: 999px;
+        padding: 0.34rem 0.54rem;
+        background: rgba(0, 0, 0, 0.62);
+        color: #ffe29a;
+        font-size: 0.75rem;
+        font-weight: 760;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        backdrop-filter: blur(10px);
+      }
+
       .collectible-title {
         margin: 0;
         color: var(--text);
@@ -877,6 +983,11 @@
         content: "";
         background: var(--cyan);
         box-shadow: 0 0 18px rgba(255, 255, 255, 0.62);
+      }
+
+      .component-dot[aria-current="true"] {
+        border-color: rgba(255, 255, 255, 0.46);
+        box-shadow: 0 0 28px rgba(255, 255, 255, 0.18);
       }
 
       .component-grid {
@@ -1250,6 +1361,14 @@
           min-height: 405px;
         }
 
+        .loop-view {
+          min-height: 470px;
+        }
+
+        .loop-visual-stack {
+          inset: 18px;
+        }
+
         .product-shell {
           inset: 18px;
           padding: 1rem;
@@ -1368,12 +1487,14 @@
             <a href="#profiles">Profiles</a>
             <a href="#cards">Cards</a>
             <a href="#omh">OMH</a>
+            <a href="#loop">Loop</a>
           </nav>
         </div>
       </header>
 
       <nav class="component-dots" aria-label="Component slides">
         <a class="component-dot" href="#omh" aria-label="OMH component slide" aria-current="true"></a>
+        <a class="component-dot" href="#loop" aria-label="Loop component slide" aria-current="false"></a>
       </nav>
 
       <main id="top">
@@ -1558,6 +1679,11 @@
                 deliberate, inspectable, and shaped through repeated contact between
                 human judgment and AI orchestration.
               </p>
+              <div class="project-tags" aria-label="OMH project attributes">
+                <span>Hermes-native</span>
+                <span>Skill surface</span>
+                <span>Friction reducer</span>
+              </div>
               <div class="component-actions">
                 <a
                   class="button"
@@ -1598,9 +1724,84 @@
                   </div>
                 </div>
                 <footer>
-                  <span>component slide 01 / 01</span>
+                  <span>component slide 01 / 02</span>
                   <span>rlaope + Friren</span>
                 </footer>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+
+        <section class="component-mode scene-panel loop-mode" id="loop" aria-labelledby="loop-title" data-component-scene>
+          <div class="section component-grid">
+            <div class="component-copy reveal">
+              <p class="scene-kicker">Component 02</p>
+              <h2 class="scene-heading" id="loop-title">Loop - Recursive goals for coding agents</h2>
+              <p class="scene-copy">
+                Loop is a safety-first Loop Engineering toolkit for coding agents:
+                define the objective once, then let a bounded loop carry intake,
+                planning, discovery, isolation, action, verification, memory, and stop rules.
+              </p>
+              <div class="project-tags" aria-label="Loop project attributes">
+                <span>Codex $loop</span>
+                <span>Durable state</span>
+                <span>Budget gates</span>
+                <span>Read-only MVP</span>
+              </div>
+              <div class="component-actions">
+                <a
+                  class="button"
+                  href="https://github.com/rlaope/loop"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  GitHub <span aria-hidden="true">&rarr;</span>
+                </a>
+                <a
+                  class="button secondary"
+                  href="https://github.com/rlaope/loop#quickstart"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Quickstart <span aria-hidden="true">&rarr;</span>
+                </a>
+              </div>
+              <div class="omh-shot loop-shot">
+                <img
+                  src="assets/loop-engineering-poster.png"
+                  alt="Loop Engineering poster"
+                  width="1024"
+                  height="1536"
+                  loading="lazy"
+                  decoding="async"
+                >
+              </div>
+            </div>
+
+            <aside class="product-view loop-view reveal" aria-label="Loop Engineering project visual">
+              <div class="loop-visual-stack">
+                <div class="loop-poster-frame">
+                  <img
+                    src="assets/loop-engineering-poster.png"
+                    alt="Loop Engineering visual with model icons and recursive loop mark"
+                    width="1024"
+                    height="1536"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                  <span class="loop-badge">Safety-first loop</span>
+                </div>
+                <div class="loop-components-frame">
+                  <img
+                    src="assets/loop-engineering-components.png"
+                    alt="Loop Engineering components: automations, worktrees, skills, plugins, sub-agents, and memory"
+                    width="1180"
+                    height="1058"
+                    loading="lazy"
+                    decoding="async"
+                  >
+                </div>
               </div>
             </aside>
           </div>
@@ -1613,6 +1814,7 @@
           <div class="footer-links" aria-label="Footer links">
             <a href="https://github.com/rlaope" target="_blank" rel="noopener noreferrer">GitHub</a>
             <a href="https://github.com/rlaope/oh-my-hermes-agent" target="_blank" rel="noopener noreferrer">OMH</a>
+            <a href="https://github.com/rlaope/loop" target="_blank" rel="noopener noreferrer">Loop</a>
             <a href="https://github.com/rlaope/artengine-lab" target="_blank" rel="noopener noreferrer">Artengine repo</a>
           </div>
         </div>
@@ -1623,7 +1825,8 @@
       (() => {
         const nav = document.querySelector("[data-nav]");
         const reveals = Array.from(document.querySelectorAll(".reveal"));
-        const componentScene = document.querySelector("[data-component-scene]");
+        const componentScenes = Array.from(document.querySelectorAll("[data-component-scene]"));
+        const componentDots = Array.from(document.querySelectorAll(".component-dot"));
         const canvas = document.getElementById("studio-field");
         const ctx = canvas ? canvas.getContext("2d") : null;
         const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -1655,16 +1858,27 @@
           revealObserver.observe(item);
         }
 
-        if (componentScene) {
-          const componentObserver = new IntersectionObserver(
-            (entries) => {
-              for (const entry of entries) {
-                document.body.classList.toggle("component-active", entry.isIntersecting);
-              }
-            },
-            { threshold: 0.32 }
-          );
-          componentObserver.observe(componentScene);
+        if (componentScenes.length) {
+          const setActiveComponent = () => {
+            const active = componentScenes.find((scene) => {
+              const rect = scene.getBoundingClientRect();
+              return rect.top <= window.innerHeight * 0.55 && rect.bottom >= window.innerHeight * 0.32;
+            });
+
+            document.body.classList.toggle("component-active", Boolean(active));
+
+            for (const dot of componentDots) {
+              const isCurrent = Boolean(active && dot.getAttribute("href") === `#${active.id}`);
+              dot.setAttribute("aria-current", isCurrent ? "true" : "false");
+            }
+          };
+
+          const componentObserver = new IntersectionObserver(setActiveComponent, { threshold: 0.24 });
+          for (const scene of componentScenes) {
+            componentObserver.observe(scene);
+          }
+          window.addEventListener("scroll", setActiveComponent, { passive: true });
+          setActiveComponent();
         }
 
         const resize = () => {
