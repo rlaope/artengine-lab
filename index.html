@@ -755,8 +755,6 @@
         position: absolute;
         inset: 24px;
         display: grid;
-        grid-template-rows: 1fr auto;
-        gap: 1rem;
       }
 
       .loop-poster-frame,
@@ -785,13 +783,14 @@
       }
 
       .loop-components-frame {
-        min-height: 132px;
+        min-height: 100%;
       }
 
       .loop-components-frame img {
         object-fit: contain;
         object-position: center;
-        opacity: 0.88;
+        padding: 1.1rem;
+        opacity: 0.92;
       }
 
       .loop-badge {
@@ -927,21 +926,27 @@
         border-color: rgba(255, 255, 255, 0.5);
       }
 
-      .component-mode {
+      .projects-scene {
         position: relative;
-        min-height: 100svh;
+        min-height: 220svh;
         border-top: 1px solid rgba(255, 255, 255, 0.12);
-        padding-bottom: 2rem;
         background:
           linear-gradient(180deg, rgba(8, 8, 8, 0.3), rgba(3, 3, 3, 0.97)),
           linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+        scroll-snap-align: start;
       }
 
-      .component-mode[hidden] {
-        display: none;
+      .projects-sticky {
+        position: sticky;
+        top: 0;
+        display: grid;
+        min-height: 100svh;
+        align-items: center;
+        overflow: hidden;
+        padding: 6.7rem 0 3.2rem;
       }
 
-      .component-mode::before {
+      .projects-sticky::before {
         position: absolute;
         inset: 0;
         pointer-events: none;
@@ -949,6 +954,31 @@
         background:
           linear-gradient(90deg, transparent 0 5%, rgba(255, 255, 255, 0.05) 5.2%, transparent 5.4%),
           linear-gradient(90deg, transparent 0 78%, rgba(255, 255, 255, 0.04) 78.2%, transparent 78.4%);
+      }
+
+      .project-slide {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        align-items: center;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(24px);
+        transition:
+          opacity 360ms ease,
+          transform 360ms ease;
+      }
+
+      .project-slide.is-active {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+      }
+
+      .project-slide.loop-mode {
+        background:
+          radial-gradient(circle at 82% 32%, rgba(255, 173, 25, 0.12), transparent 25rem),
+          radial-gradient(circle at 18% 72%, rgba(42, 126, 255, 0.12), transparent 28rem);
       }
 
       .component-dots {
@@ -1249,14 +1279,14 @@
         }
 
         .scene-panel,
-        .component-mode {
+        .projects-scene {
           scroll-snap-align: start;
         }
 
         @supports (animation-timeline: view()) {
           .scene-panel .section,
           .scene-panel .section-narrow,
-          .component-grid {
+          .project-slide.is-active .component-grid {
             animation: sceneDrift linear both;
             animation-timeline: view();
             animation-range: entry 8% cover 44%;
@@ -1352,8 +1382,12 @@
           height: 82px;
         }
 
-        .component-mode {
-          min-height: auto;
+        .projects-scene {
+          min-height: 200svh;
+        }
+
+        .projects-sticky {
+          min-height: 100svh;
           padding: 4.4rem 0 3.4rem;
         }
 
@@ -1489,9 +1523,7 @@
           </a>
           <nav class="nav-links" aria-label="Primary navigation">
             <a href="#profiles">Profiles</a>
-            <a href="#cards">Cards</a>
-            <a href="#omh">OMH</a>
-            <a href="#loop">Loop</a>
+            <a href="#projects">Projects</a>
           </nav>
         </div>
       </header>
@@ -1606,210 +1638,74 @@
           </div>
         </section>
 
-        <section class="scene-panel collectible-scene" id="cards" aria-labelledby="cards-title">
-          <div class="section">
-            <div class="reveal">
-              <h2 class="scene-heading" id="cards-title">art8engine</h2>
-            </div>
-
-            <div class="collectible-grid reveal" aria-label="Studio collectible cards">
-              <article class="collectible-card logo-card">
-                <div class="card-index">
-                  <span>Signature 01</span>
-                  <span>Logo system</span>
-                </div>
-                <div class="logo-mark-wrap" aria-hidden="true">
-                  <svg class="ae-logo" viewBox="0 0 640 260" role="img" aria-label="art8engine logo">
-                    <defs>
-                      <linearGradient id="logo-stroke" x1="80" y1="38" x2="560" y2="220" gradientUnits="userSpaceOnUse">
-                        <stop stop-color="#f6f4ec"></stop>
-                        <stop offset="0.52" stop-color="#d7e4ed"></stop>
-                        <stop offset="1" stop-color="#e5e1d8"></stop>
-                      </linearGradient>
-                      <filter id="logo-glow" x="-20%" y="-30%" width="140%" height="160%">
-                        <feGaussianBlur stdDeviation="4" result="blur"></feGaussianBlur>
-                        <feMerge>
-                          <feMergeNode in="blur"></feMergeNode>
-                          <feMergeNode in="SourceGraphic"></feMergeNode>
-                        </feMerge>
-                      </filter>
-                    </defs>
-                    <rect x="30" y="34" width="580" height="188" rx="10" fill="#0d0d0d" stroke="#f6f4ec" stroke-opacity="0.25"></rect>
-                    <path d="M78 192 132 68l55 124M102 143h60" fill="none" stroke="url(#logo-stroke)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" filter="url(#logo-glow)"></path>
-                    <path d="M232 70h84c20 0 34 12 34 30 0 16-9 26-24 31 20 6 31 18 31 38 0 31-23 50-60 50h-65V70Zm50 43v28h25c11 0 18-5 18-14 0-9-7-14-18-14h-25Zm0 67h32c13 0 21 6 21 17 0 11-8 17-21 17h-32v-34Z" fill="url(#logo-stroke)" filter="url(#logo-glow)"></path>
-                    <path d="M424 174c0-22 13-35 31-43-12-7-19-18-19-32 0-24 19-40 47-40 29 0 48 16 48 40 0 14-7 25-19 32 18 8 31 21 31 43 0 31-24 52-60 52-35 0-59-21-59-52Zm44 0c0 12 9 20 21 20 13 0 21-8 21-20 0-12-9-20-21-20-12 0-21 8-21 20Zm4-67c0 10 7 17 17 17 11 0 18-7 18-17 0-10-7-17-18-17-10 0-17 7-17 17Z" fill="url(#logo-stroke)" filter="url(#logo-glow)"></path>
-                    <path d="M214 53h34M392 53h34M214 203h34M392 203h34" stroke="#e5e1d8" stroke-opacity="0.68" stroke-width="3" stroke-linecap="round"></path>
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="collectible-title">art8engine</h3>
-                  <p class="collectible-text">
-                    A compact mark for keeping artistic judgment and engineering precision inside the same frame.
+        <section class="projects-scene" id="projects" aria-label="Project carousel" data-projects-scene>
+          <div class="projects-sticky">
+            <article class="project-slide is-active" id="omh" aria-labelledby="omh-title" data-project-slide>
+              <div class="section component-grid">
+                <div class="component-copy reveal">
+                  <p class="scene-kicker">Project 01</p>
+                  <h2 class="scene-heading" id="omh-title">OMH - Oh My Hermes Agent</h2>
+                  <p class="scene-copy">
+                    OMH turns the Art &amp; Engineering partnership into a product surface:
+                    deliberate, inspectable, and shaped through repeated contact between
+                    human judgment and AI orchestration.
                   </p>
-                </div>
-              </article>
-
-              <article class="collectible-card manifesto-card">
-                <div class="card-index">
-                  <span>Letter 02</span>
-                  <span>Studio note</span>
-                </div>
-                <div class="manifesto-sheet">
-                  <p class="manifesto-lead">A note from Art &amp; Engineering</p>
-                  <p class="manifesto-copy">
-                    We build with the belief that radical engineering and artistic sensitivity can meet in one disciplined practice.
-                    Every release is shaped until the system works with precision and the feeling lands with intent.
-                  </p>
-                  <p class="manifesto-copy">
-                    If you want to build with Artengine, we would be glad to hear from you.
-                  </p>
-                  <div class="manifesto-links" aria-label="Artengine contact links">
-                    <a href="mailto:piyrw9754@gmail.com">mailto · piyrw9754@gmail.com</a>
-                    <a href="https://github.com/rlaope" target="_blank" rel="noopener noreferrer">github · rlaope</a>
+                  <div class="project-tags" aria-label="OMH project attributes">
+                    <span>Hermes-native</span>
+                    <span>Skill surface</span>
+                    <span>Friction reducer</span>
+                  </div>
+                  <div class="component-actions">
+                    <a class="button" href="https://github.com/rlaope/oh-my-hermes-agent" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">&rarr;</span></a>
+                  </div>
+                  <div class="omh-shot">
+                    <img src="assets/omh-hero.png" alt="OMH interface preview" width="1448" height="1086" loading="lazy" decoding="async">
                   </div>
                 </div>
-              </article>
-            </div>
+                <aside class="product-view reveal" aria-label="OMH product component visual">
+                  <div class="product-shell">
+                    <header><span>Art &amp; Engineering</span><span class="status">Product mode</span></header>
+                    <div>
+                      <div class="product-name"><strong>OMH</strong><span>First serious product. Small surface. Exact intent.</span></div>
+                      <div class="signal-lines" aria-hidden="true"><i></i><i></i><i></i></div>
+                    </div>
+                    <footer><span>project slide 01 / 02</span><span>rlaope + Friren</span></footer>
+                  </div>
+                </aside>
+              </div>
+            </article>
+
+            <article class="project-slide loop-mode" id="loop" aria-labelledby="loop-title" data-project-slide>
+              <div class="section component-grid">
+                <div class="component-copy reveal">
+                  <p class="scene-kicker">Project 02</p>
+                  <h2 class="scene-heading" id="loop-title">Loop - Recursive goals for coding agents</h2>
+                  <p class="scene-copy">
+                    Loop is a safety-first Loop Engineering toolkit for coding agents:
+                    define the objective once, then let a bounded loop carry intake,
+                    planning, discovery, isolation, action, verification, memory, and stop rules.
+                  </p>
+                  <div class="project-tags" aria-label="Loop project attributes">
+                    <span>Codex $loop</span><span>Durable state</span><span>Budget gates</span><span>Read-only MVP</span>
+                  </div>
+                  <div class="component-actions">
+                    <a class="button" href="https://github.com/rlaope/loop" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">&rarr;</span></a>
+                    <a class="button secondary" href="https://github.com/rlaope/loop#quickstart" target="_blank" rel="noopener noreferrer">Quickstart <span aria-hidden="true">&rarr;</span></a>
+                  </div>
+                </div>
+                <aside class="product-view loop-view reveal" aria-label="Loop Engineering project visual">
+                  <div class="loop-visual-stack">
+                    <div class="loop-components-frame">
+                      <img src="assets/loop-engineering-components.png" alt="Loop Engineering components: automations, worktrees, skills, plugins, sub-agents, and memory" width="1180" height="1058" loading="lazy" decoding="async">
+                      <span class="loop-badge">Safety-first loop</span>
+                    </div>
+                  </div>
+                </aside>
+              </div>
+            </article>
           </div>
         </section>
 
-        <section class="component-mode scene-panel" id="omh" aria-labelledby="omh-title" data-component-scene>
-          <div class="section component-grid">
-            <div class="component-copy reveal">
-              <p class="scene-kicker">Component 01</p>
-              <h2 class="scene-heading" id="omh-title">OMH - Oh My Hermes Agent</h2>
-              <p class="scene-copy">
-                OMH turns the Art &amp; Engineering partnership into a product surface:
-                deliberate, inspectable, and shaped through repeated contact between
-                human judgment and AI orchestration.
-              </p>
-              <div class="project-tags" aria-label="OMH project attributes">
-                <span>Hermes-native</span>
-                <span>Skill surface</span>
-                <span>Friction reducer</span>
-              </div>
-              <div class="component-actions">
-                <a
-                  class="button"
-                  href="https://github.com/rlaope/oh-my-hermes-agent"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub <span aria-hidden="true">&rarr;</span>
-                </a>
-              </div>
-              <div class="omh-shot">
-                <img
-                  src="assets/omh-hero.png"
-                  alt="OMH interface preview"
-                  width="1448"
-                  height="1086"
-                  loading="lazy"
-                  decoding="async"
-                >
-              </div>
-            </div>
-
-            <aside class="product-view reveal" aria-label="OMH product component visual">
-              <div class="product-shell">
-                <header>
-                  <span>Art &amp; Engineering</span>
-                  <span class="status">Product mode</span>
-                </header>
-                <div>
-                  <div class="product-name">
-                    <strong>OMH</strong>
-                    <span>First serious product. Small surface. Exact intent.</span>
-                  </div>
-                  <div class="signal-lines" aria-hidden="true">
-                    <i></i>
-                    <i></i>
-                    <i></i>
-                  </div>
-                </div>
-                <footer>
-                  <span>component slide 01 / 02</span>
-                  <span>rlaope + Friren</span>
-                </footer>
-              </div>
-            </aside>
-          </div>
-        </section>
-
-
-        <section class="component-mode scene-panel loop-mode" id="loop" aria-labelledby="loop-title" data-component-scene>
-          <div class="section component-grid">
-            <div class="component-copy reveal">
-              <p class="scene-kicker">Component 02</p>
-              <h2 class="scene-heading" id="loop-title">Loop - Recursive goals for coding agents</h2>
-              <p class="scene-copy">
-                Loop is a safety-first Loop Engineering toolkit for coding agents:
-                define the objective once, then let a bounded loop carry intake,
-                planning, discovery, isolation, action, verification, memory, and stop rules.
-              </p>
-              <div class="project-tags" aria-label="Loop project attributes">
-                <span>Codex $loop</span>
-                <span>Durable state</span>
-                <span>Budget gates</span>
-                <span>Read-only MVP</span>
-              </div>
-              <div class="component-actions">
-                <a
-                  class="button"
-                  href="https://github.com/rlaope/loop"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub <span aria-hidden="true">&rarr;</span>
-                </a>
-                <a
-                  class="button secondary"
-                  href="https://github.com/rlaope/loop#quickstart"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Quickstart <span aria-hidden="true">&rarr;</span>
-                </a>
-              </div>
-              <div class="omh-shot loop-shot">
-                <img
-                  src="assets/loop-engineering-poster.png"
-                  alt="Loop Engineering poster"
-                  width="1024"
-                  height="1536"
-                  loading="lazy"
-                  decoding="async"
-                >
-              </div>
-            </div>
-
-            <aside class="product-view loop-view reveal" aria-label="Loop Engineering project visual">
-              <div class="loop-visual-stack">
-                <div class="loop-poster-frame">
-                  <img
-                    src="assets/loop-engineering-poster.png"
-                    alt="Loop Engineering visual with model icons and recursive loop mark"
-                    width="1024"
-                    height="1536"
-                    loading="lazy"
-                    decoding="async"
-                  >
-                  <span class="loop-badge">Safety-first loop</span>
-                </div>
-                <div class="loop-components-frame">
-                  <img
-                    src="assets/loop-engineering-components.png"
-                    alt="Loop Engineering components: automations, worktrees, skills, plugins, sub-agents, and memory"
-                    width="1180"
-                    height="1058"
-                    loading="lazy"
-                    decoding="async"
-                  >
-                </div>
-              </div>
-            </aside>
-          </div>
-        </section>
       </main>
 
       <footer>
@@ -1829,7 +1725,8 @@
       (() => {
         const nav = document.querySelector("[data-nav]");
         const reveals = Array.from(document.querySelectorAll(".reveal"));
-        const componentScenes = Array.from(document.querySelectorAll("[data-component-scene]"));
+        const projectsScene = document.querySelector("[data-projects-scene]");
+        const projectSlides = Array.from(document.querySelectorAll("[data-project-slide]"));
         const componentDots = Array.from(document.querySelectorAll(".component-dot"));
         const canvas = document.getElementById("studio-field");
         const ctx = canvas ? canvas.getContext("2d") : null;
@@ -1862,42 +1759,95 @@
           revealObserver.observe(item);
         }
 
-        if (componentScenes.length) {
-          const componentIds = new Set(componentScenes.map((scene) => scene.id));
+        const projectIds = new Set(projectSlides.map((slide) => slide.id));
+        let activeProjectId = projectSlides[0]?.id || "omh";
 
-          const activeComponentId = () => {
-            const id = window.location.hash.slice(1);
-            return componentIds.has(id) ? id : "omh";
-          };
-
-          const setActiveComponent = ({ scrollIntoView = false } = {}) => {
-            const id = activeComponentId();
-            const active = componentScenes.find((scene) => scene.id === id) || componentScenes[0];
-
-            for (const scene of componentScenes) {
-              scene.hidden = scene !== active;
-            }
-
-            document.body.classList.toggle("component-active", Boolean(active));
-
-            for (const dot of componentDots) {
-              const isCurrent = dot.getAttribute("href") === `#${active.id}`;
-              dot.setAttribute("aria-current", isCurrent ? "true" : "false");
-            }
-
-            if (scrollIntoView && active) {
-              active.scrollIntoView({ block: "start" });
-            }
-
-            updateChrome();
-          };
-
-          for (const dot of componentDots) {
-            dot.addEventListener("click", () => requestAnimationFrame(() => setActiveComponent({ scrollIntoView: true })));
+        const setActiveProject = (id) => {
+          if (!projectIds.has(id) || id === activeProjectId) {
+            return;
           }
 
-          window.addEventListener("hashchange", () => setActiveComponent({ scrollIntoView: true }));
-          setActiveComponent({ scrollIntoView: componentIds.has(window.location.hash.slice(1)) });
+          activeProjectId = id;
+          for (const slide of projectSlides) {
+            const isCurrent = slide.id === id;
+            slide.classList.toggle("is-active", isCurrent);
+            slide.setAttribute("aria-hidden", isCurrent ? "false" : "true");
+          }
+
+          for (const dot of componentDots) {
+            const isCurrent = dot.getAttribute("href") === `#${id}`;
+            dot.setAttribute("aria-current", isCurrent ? "true" : "false");
+          }
+        };
+
+        const projectScrollTarget = (id) => {
+          if (!projectsScene) {
+            return 0;
+          }
+
+          const sceneTop = projectsScene.offsetTop;
+          const travel = Math.max(projectsScene.offsetHeight - window.innerHeight, 1);
+          return sceneTop + (id === "loop" ? travel : 0);
+        };
+
+        const updateProjectFromScroll = () => {
+          if (!projectsScene || projectSlides.length === 0) {
+            return;
+          }
+
+          const rect = projectsScene.getBoundingClientRect();
+          const isProjectVisible = rect.top < window.innerHeight * 0.58 && rect.bottom > window.innerHeight * 0.42;
+          document.body.classList.toggle("component-active", isProjectVisible);
+
+          if (!isProjectVisible) {
+            return;
+          }
+
+          const travel = Math.max(projectsScene.offsetHeight - window.innerHeight, 1);
+          const progress = Math.min(Math.max((window.scrollY - projectsScene.offsetTop) / travel, 0), 1);
+          setActiveProject(progress >= 0.5 ? "loop" : "omh");
+        };
+
+        for (const dot of componentDots) {
+          dot.addEventListener("click", (event) => {
+            const id = dot.getAttribute("href")?.slice(1);
+            if (!projectIds.has(id)) {
+              return;
+            }
+
+            event.preventDefault();
+            setActiveProject(id);
+            window.scrollTo({ top: projectScrollTarget(id), behavior: "smooth" });
+            history.replaceState(null, "", `#${id}`);
+          });
+        }
+
+        const hashProjectId = () => {
+          const id = window.location.hash.slice(1);
+          return projectIds.has(id) ? id : null;
+        };
+
+        window.addEventListener("hashchange", () => {
+          const id = hashProjectId();
+          if (!id) {
+            return;
+          }
+
+          setActiveProject(id);
+          window.scrollTo({ top: projectScrollTarget(id), behavior: "smooth" });
+        });
+
+        for (const slide of projectSlides) {
+          slide.setAttribute("aria-hidden", slide.classList.contains("is-active") ? "false" : "true");
+        }
+
+        const initialProjectId = hashProjectId();
+        if (initialProjectId) {
+          requestAnimationFrame(() => {
+            setActiveProject(initialProjectId);
+            window.scrollTo({ top: projectScrollTarget(initialProjectId) });
+            updateProjectFromScroll();
+          });
         }
 
         const resize = () => {
@@ -1988,11 +1938,16 @@
         };
 
         updateChrome();
+        updateProjectFromScroll();
         startCanvas();
 
-        window.addEventListener("scroll", updateChrome, { passive: true });
+        window.addEventListener("scroll", () => {
+          updateChrome();
+          updateProjectFromScroll();
+        }, { passive: true });
         window.addEventListener("resize", () => {
           updateChrome();
+          updateProjectFromScroll();
           startCanvas();
         });
         reduceMotion.addEventListener("change", startCanvas);
